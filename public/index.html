@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Getreide Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script>
+    window.Apex = {
+      chart: {
+        foreColor: '#e0e0e0',
+        toolbar: { show: false }
+      },
+      theme: {
+        mode: 'dark'
+      },
+      colors: ['#00E396', '#FEB019', '#008FFB', '#FF4560']
+    };
+  </script>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="partner-select">
+      <label for="partnerDropdown">Partner wählen:</label>
+      <select id="partnerDropdown">
+        <option value="partner1">Partner 1</option>
+        <option value="partner2">Partner 2</option>
+        <option value="partner3">Partner 3</option>
+      </select>
+    </div>
+
+    <div class="cards">
+      <div class="card">🌡 Avg Temp<br><span id="avgTemp">-- °C</span></div>
+      <div class="card">💧 Avg Humidity<br><span id="avgHumidity">-- %</span></div>
+      <div class="card">🟢 Avg CO₂<br><span id="avgCO2">-- ppm</span></div>
+      <div class="card">☣ Avg Aflatoxin<br><span id="avgAflatoxin">-- µg/kg</span></div>
+    </div>
+
+    <div class="charts">
+      <div class="chart"><h3>Temperatur</h3><div id="chart1"></div></div>
+      <div class="chart"><h3>Feuchtigkeit</h3><div id="chart2"></div></div>
+      <div class="chart"><h3>CO₂</h3><div id="chart3"></div></div>
+      <div class="chart"><h3>Aflatoxin</h3><div id="chart4"></div></div>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="timeline">
+      <input type="range" id="weekSlider" min="1" max="10" value="1" />
+      <div id="weekLabel">Woche 1</div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
