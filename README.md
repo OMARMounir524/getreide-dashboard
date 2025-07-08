@@ -16,3 +16,4 @@ Go to **Terminal > New Terminal**
 In the terminal, type:
 ```bash
 npm install
+node server.js
