@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profil – Getreide Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+  <div class="login-box">
+    <h1 class="form-title">Mein Profil</h1>
+    <p>Benutzername: <strong id="profile-username"></strong></p>
+    <button id="btn-back">Zurück zum Dashboard</button>
+  </div>
+
+  <script>
+    fetch('/api/me')
+      .then(r => r.json())
+      .then(user => {
+        document.getElementById('profile-username').innerText = user.username;
+      });
+
+    document.getElementById('btn-back')
+      .addEventListener('click', () => window.location.href = '/');
+  </script>
+</body>
+</html>

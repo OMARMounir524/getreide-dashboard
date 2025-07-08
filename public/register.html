@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registrieren – Getreide Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+  <div class="login-box">
+    <h1 class="form-title">Registrieren</h1>
+
+    <form action="/register" method="POST">
+      <label for="username">Wunsch-Benutzername:</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Passwort:</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Account anlegen</button>
+    </form>
+
+    <p class="alt-action">
+      Schon registriert? 
+      <a href="/login"><button class="link-button">Login</button></a>
+    </p>
+  </div>
+</body>
+</html>

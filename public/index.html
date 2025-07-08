@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <title>Getreide Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- ApexCharts -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script>
+    window.Apex = {
+      chart: { foreColor: '#e0e0e0', toolbar: { show: false } },
+      theme: { mode: 'dark' },
+      colors: ['#00E396','#FEB019','#008FFB','#FF4560']
+    };
+  </script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="dashboard-header">
+    <div class="header-left">
+      <h1 class="dashboard-title">Dashboard</h1>
+    </div>
+    <div class="header-right">
+      <!-- Location-Buttons -->
+      <div class="location-buttons">
+        <button data-loc="Location A" class="active">Location A</button>
+        <button data-loc="Location B">Location B</button>
+        <button data-loc="Location C">Location C</button>        
+      </div>
+      <!-- Datumsauswahl -->
+      <div class="filter-panel date-range">
+        <label>Von:<input type="date" id="startDate"></label>
+        <label>Bis:<input type="date" id="endDate"></label>
+        <button id="btn-apply-range">Anwenden</button>
+      </div>
+      <!-- Profil & Logout -->
+      <div class="header-buttons">
+        <button id="btn-profile">Mein Profil</button>
+        <button id="btn-logout">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- KPI-Cards -->
+  <div class="cards">
+    <div class="card">
+      <i class="fas fa-temperature-high"></i><br>
+      ~ Temp<br><span id="avgTemp">-- °C</span>
+    </div>
+    <div class="card">
+      <i class="fas fa-tint"></i><br>
+      ~ Feuchtigkeit<br><span id="avgHumidity">-- %</span>
+    </div>
+    <div class="card">
+      <i class="fas fa-smog"></i><br>
+      ~ CO₂<br><span id="avgCO2">-- ppm</span>
+    </div>
+    <div class="card">
+      <i class="fas fa-biohazard"></i><br>
+      ~ Aflatoxin<br><span id="avgAflatoxin">-- µg/kg</span>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="charts">
+    <div class="chart"><h3>Temperatur</h3><div id="chart1"></div></div>
+    <div class="chart"><h3>Feuchtigkeit</h3><div id="chart2"></div></div>
+    <div class="chart"><h3>CO₂</h3><div id="chart3"></div></div>
+    <div class="chart"><h3>Aflatoxin</h3><div id="chart4"></div></div>
+  </div>
+
+  <!-- Map -->
+  <div id="map"></div>
+
+  <!-- Woche-Slider -->
+  <div class="week-slider-container">
+    <label for="week-slider">Woche wählen:</label>
+    <input type="range" id="week-slider" min="1" value="1" />
+    <span id="week-label">Woche 1</span>
+  </div>
+
+  <!-- Skripte -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

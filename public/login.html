@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login – Getreide Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+  <div class="login-box">
+    <!-- 1) Header hinzugefügt -->
+    <h1 class="form-title">Login</h1>
+
+    <form action="/login" method="POST">
+      <label for="username">Benutzername:</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Passwort:</label>
+      <input type="password" id="password" name="password" required />
+
+      <!-- 2) Einloggen-Button -->
+      <button type="submit">Einloggen</button>
+    </form>
+
+    <!-- 3) Registrieren-Button statt nur Text -->
+    <p class="alt-action">
+      Noch keinen Account?
+      <a href="/register"><button class="link-button">Registrieren</button></a>
+    </p>
+  </div>
+</body>
+</html>
